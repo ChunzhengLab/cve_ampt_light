@@ -1,0 +1,9 @@
+*.root
+*.csv
+*.log
+.cache/
+.ropeproject
+*.pdf
+*.png
+analysis_cve
+analysis_lambda_feeddown

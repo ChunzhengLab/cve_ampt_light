@@ -1,0 +1,17 @@
+# ==============================================================================
+# HTCondor提交脚本 - Lambda Feeddown Analysis
+# ==============================================================================
+universe       = vanilla
+should_transfer_files   = NO
+
+# 基本配置
+executable     = /storage/fdunphome/wangchunzheng/cve_ampt_light/lambda_feeddown/run.sh
+arguments      = $(INPUT_FILE) $(Process)
+
+# 日志配置
+output         = /storage/fdunphome/wangchunzheng/cve_ampt_light/lambda_feeddown/outputs/job_$(Process).out
+error          = /storage/fdunphome/wangchunzheng/cve_ampt_light/lambda_feeddown/outputs/job_$(Process).err
+log            = /storage/fdunphome/wangchunzheng/cve_ampt_light/lambda_feeddown/outputs/job_$(Process).log
+
+# 任务队列：从joblist读取输入文件列表
+queue INPUT_FILE from /storage/fdunphome/wangchunzheng/cve_ampt_light/joblist_lambda_feeddown.txt
